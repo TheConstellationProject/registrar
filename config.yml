@@ -1,0 +1,9 @@
+port: 8080
+host: localhost
+
+tlds:
+  - spdr
+  - spider
+
+statport: 8081
+stathost: localhost
