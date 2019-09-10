@@ -26,7 +26,7 @@ func Render(path string) *TemplateRenderer {
 	}
 }
 
-// String to HTML
-func HTML(html string) template.HTML {
-	return template.HTML(html)
-}
+// String to HTML. Not really used much.
+//func HTML(html string) template.HTML {
+//	return template.HTML(html)
+//}

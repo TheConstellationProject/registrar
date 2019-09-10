@@ -3,33 +3,17 @@ package main
 import (
 	"fmt"
 	"github.com/labstack/echo"
-	"math/rand"
 	"net/http"
 	"strings"
 )
 
-//func registerGetHandler(c echo.Context) error {
-//	return c.Render(http.StatusOK, "register.html", map[string]interface{}{})
-//}
+func registerGetHandler(c echo.Context) error {
+	return c.Render(http.StatusOK, "search.html", map[string]interface{}{
+		"title": "test",
+	})
+}
 
 var letters = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
-
-func token() string {
-	b := make([]rune, 64) // 64 characters
-	for i := range b {
-		b[i] = letters[rand.Intn(len(letters))]
-	}
-	return string(b)
-}
-
-func inTLDs(tld string) bool {
-	for _, ptld := range config.TLDs { // for tld in tlds...
-		if ptld == tld {
-			return true
-		}
-	}
-	return false
-}
 
 func searchPostHandler(c echo.Context) error {
 	var out []string
@@ -40,11 +24,6 @@ func searchPostHandler(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, out)
-}
-
-func isValid(domain string) bool {
-	pdomain := strings.Split(domain, ".")
-	return len(pdomain) == 2 && inTLDs(pdomain[1])
 }
 
 func registerPostHandler(c echo.Context) error {
@@ -122,6 +101,8 @@ func main() {
 	e.Renderer = Render("templates/*.html")
 
 	e.POST("/search", searchPostHandler)
+	e.GET("/search", registerGetHandler)
+	e.File("/register", "templates/register.html")
 
 	e.POST("/register", registerPostHandler)
 

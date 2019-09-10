@@ -5,7 +5,9 @@ import (
 	"encoding/gob"
 	"fmt"
 	"github.com/dgraph-io/badger"
+	"math/rand"
 	"net/http"
+	"strings"
 )
 
 var db *badger.DB
@@ -21,6 +23,28 @@ type Domain struct {
 	Domain  string
 	Token   string
 	Records []Record
+}
+
+func isValidTLD(tld string) bool {
+	for _, ptld := range config.TLDs { // for tld in tlds...
+		if ptld == tld {
+			return true
+		}
+	}
+	return false
+}
+
+func token() string {
+	b := make([]rune, 64) // 64 characters
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+	return string(b)
+}
+
+func isValid(domain string) bool {
+	pdomain := strings.Split(domain, ".")
+	return len(pdomain) == 2 && isValidTLD(pdomain[1])
 }
 
 func Add(domain string, value Domain) {
@@ -98,7 +122,6 @@ func init() {
 		panic(err)
 	}
 
-	go http.ListenAndServe(config.StatHost + ":" + config.StatPort, nil)
+	go http.ListenAndServe(config.StatHost+":"+config.StatPort, nil)
 	fmt.Println("[DATABASE] Running stat server on " + config.StatHost + ":" + config.StatPort)
 }
-

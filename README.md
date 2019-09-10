@@ -1,6 +1,6 @@
 ## Registrar
 
-## <img src="https://arachnid.cc/graphics/logos/purple.png">
+## <img src="purple.png">
 
 The Arachnid Registrar handles all `.spdr` and `.spider` domain registrations on the Arachnid Network (https://arachnid.cc/). It can be accessed on Arachnid http://registrar.spdr/. It consists of the [API](#api-endpoints), [Database](#database), and [UI](#ui). The backend is written in go using [echo](https://github.com/labstack/echo) and [badger](https://github.com/dgraph-io/badger).
 
@@ -16,11 +16,11 @@ Configuration of the registrar can be managed by the `config.yml` file in the ro
 
 After installing Go, run `make all` to install, build, and run the server.
 
-| Rule      |                                                     Function |
+| Rule      | Function                                                     |
 | --------- | :----------------------------------------------------------- |
-| `install` |            Install required dependencies. (Not including Go) |
-| `build`   |               Build the project. Outputs `registrar` binary. |
-| `clean`   | Clean and reset registrar. **WARNING: This deletes the database.** |
+| `install` | Install required dependencies. (Not including Go)            |
+| `build`   | Build the project. Outputs `registrar` binary.               |
+| `clean`   | Clean and reset the registrar. **WARNING: This deletes the database.** |
 
 
 
@@ -31,7 +31,7 @@ The registrar server, written with [echo](https://github.com/labstack/echo) serv
 ##### `/search`
 
 * Purpose: Search for an available domain.
-* Methods: GET, POST
+* Methods: POST
 * Returns: 
 
 | Field | Type   | Description  |
@@ -96,6 +96,12 @@ badger restore --dir db/
 ```
 
  Built in backup support via the badger API coming soon.
+
+
+
+#### Developers
+
+Project Lead: [@iotyl]( https://github.com/iotyl )
 
 
 
