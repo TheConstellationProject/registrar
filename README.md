@@ -107,4 +107,4 @@ Project Lead: [@iotyl]( https://github.com/iotyl )
 
 #### More information
 
-For more information about the network and registrar, visit our website https://arachnid.cc, our wiki at https://wiki.arachnid.cc, or send us an email at hello@arachind.cc.
+For more information about the network and registrar, visit our website https://arachnid.cc, our wiki at https://wiki.arachnid.cc, or send us an email at hello@arachnid.cc.
