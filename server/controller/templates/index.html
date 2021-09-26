@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Constellation</title>
+    <meta name="description" content="Constellation Network (ConstellationNet) Alternative Network">
+    <meta name="author" content="Constellation Network"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+
+<div class="center">
+  <h2>Constellation Network</h2>
+    <p>The Constellation Network (ConstellationNet) is a place to securely host IP services away from the wider internet. Expensive domain prices, security threats, and address shortages create a less than ideal situation to host your application. ConstellationNet fixes this problem. With free domains, custom TLDs, and no shortage of IPv4 addresses with native IPv6 coming soon, there's no cost for addressing.</p>
+
+    <h5>Technology</h5>
+    <p>The network operates as a internet-linked intranet. We use <a href="https://zerotier.com/">ZeroTier</a> SDN to provide intranet connectivity. Please note that this service DOES NOT provide <i>internet</i> connectivity. Detailed installation instructions and current downloads can be found on their website. <a href="https://www.zerotier.com/download/">https://www.zerotier.com/download/</a> Our ZeroTier network is private, and all devices must be registered prior to use via the form below.<p>
+
+    <h5>Domains</h5>
+    <p>We operate a non-recursive authoritative DNS server. While you are not required by the network to use ours as your primary DNS server, domains will not resolve any other way. The servers are located at 172.16.X.X All domains are provided free of charge. To register yours, use the <a href="/network/search">domain portal.</a></p>
+
+    <h5>Request device authorization</h5>
+    <form action="/network/access" method="POST">
+      <table>
+        <tr>
+          <th class="center-label"><div class="tooltip">MAC Address<span class="tooltiptext">MAC Address of ZeroTier interface.</span></div></th>
+          <th class="center-label"><div class="tooltip">Device ID<span class="tooltiptext">ZeroTier device ID. Run `sudo zerotier-cli info` for UNIX like systems.</span></div></th>
+        </tr>
+
+        <tr>
+          <td style="border: none;"><input type="text" name="mac" value="MAC" onfocus="this.value=''"></td>
+          <td style="border: none;"><input type="text" name="id" value="Device ID" onfocus="this.value=''"></td>
+
+          <td style="border: none;"><input class="large-box" type="submit" value="Generate   "></td>
+        </tr>
+      </table>
+    </form>
+
+    <pre>
+{{ profile }}
+    </pre>
+</div>
+</body>
+<footer>&copy; <script>document.write(new Date().getFullYear());</script> Constellation Network Team.</footer>
+</html>

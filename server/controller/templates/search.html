@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Constellation</title>
+    <meta name="description" content="Constellation Network (ConstellationNet) Alternative Network">
+    <meta name="author" content="Constellation network"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<div class="center">
+  <h1>Search for a domain:</h1>
+    <form action="/network/search" method="POST">
+        <input type="text" name="query" value="Search for a domain..." onfocus="this.value=''">
+    </form>
+    <p>TLDs: {{ tlds }}</p>
+</div>
+
+<h1>{{ alert }}</h1>
+
+<table>
+    <tr>
+        <th>Domain Name</th>
+        <th>Availability</th>
+    </tr>
+
+    {{ domains }}
+</table>
+
+</body>
+
+<footer>&copy; <script>document.write(new Date().getFullYear());</script> Constellation Network Team.</footer>
+</html>

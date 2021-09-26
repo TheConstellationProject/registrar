@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Constellation</title>
+    <meta name="description" content="Constellation Network (ConstellationNet) Alternative Network">
+    <meta name="author" content="Constellation Network"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+
+<div class="center">
+  <h2>DNS Records for {{ domain }}</h2>
+  {{ alert }}
+    <form action="/network/record" method="POST">
+
+      <table>
+        <tr>
+          <th class="center-label"><div class="tooltip">Name<span class="tooltiptext">Use '@' to represent the root of the domain.</span></div></th>
+          <th class="center-label">IPv4 Address</th>
+        </tr>
+
+        <tr>
+          <td style="border: none;"><input type="text" name="name" value="Name" onfocus="this.value=''"></td>
+          <td style="border: none;"><input type="text" name="addr" value="Address" onfocus="this.value=''"></td>
+          <td style="border: none;"><input class="large-box" type="submit" value="Add"></td>
+          <input type="hidden" name="domain" value="{{ domain }}">
+        </tr>
+      </table>
+
+      <br>
+
+      <table>
+          <tr>
+              <th>Record</th>
+              <th>Value</th>
+          </tr>
+
+          {{ records }}
+      </table>
+
+      <br>
+
+      <input type="text" name="token" value="Access Token" onfocus="this.value=''">
+    </form>
+</div>
+
+</body>
+
+<footer>&copy; <script>document.write(new Date().getFullYear());</script> Constellation Network Team.</footer>
+</html>

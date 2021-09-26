@@ -1,0 +1,22 @@
+arachnid.cc:443, www.arachnid.cc:443 {
+	header / -Server
+	header / Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+	gzip
+	log access.log
+
+	root web
+
+	proxy /network localhost:8080 {
+		transparent
+	}
+	
+	proxy /pad pad.arachnid.cc:80 {
+		transparent
+		without /pad
+	}
+	basicauth /network/dashboard arachnid theArachn1dnetwork
+	basicauth /network/authorize arachnid theArachn1dnetwork
+	basicauth /network/unauthorize arachnid theArachn1dnetwork
+	basicauth /network/delete arachnid theArachn1dnetwork
+	basicauth /network/name arachnid theArachn1dnetwork
+}

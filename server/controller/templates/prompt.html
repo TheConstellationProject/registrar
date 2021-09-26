@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Constellation</title>
+    <meta name="description" content="Constellation Network (ConstellationNet) Alternative Network">
+    <meta name="author" content="Constellation Network"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+
+<div class="center">
+  <h1>Register {{ domain }}</h1>
+  <h6>Are you sure you want to register {{ domain }}?</h6>
+    <input type="button" class="small-box" value="No" onclick="window.history.back();">
+    <input type="button" class="small-box" value="Yes" onclick="window.location='/network/register?domain={{ domain }}';">
+</div>
+
+</body>
+
+<footer>&copy; <script>document.write(new Date().getFullYear());</script> Constellation Network Team.</footer>
+</html>
